@@ -1,0 +1,70 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven - Ignore Maven project output directory
+target/
+
+# Maven - Ignore Maven local repository
+~/.m2
+
+# IntelliJ IDEA Specifics
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Visual Studio Code
+.vscode/
+
+# OS X specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Java specific
+hs_err_pid*
+
+# Selenium specific
+*.test-output
+testng-failed.xml
+test-output.xml
+
+# Log files
+*.log
+
+# Virtual Machine files
+*.vmdk
+*.vmx
+*.vmxf
