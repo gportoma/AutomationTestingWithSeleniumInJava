@@ -10,16 +10,16 @@ A estrutura de diretórios do projeto é a seguinte:
 
 ````
 └──projeto-automacao-selenium-java/
-    └── src/
-        ├──main/
-        │   └──resources/
-        │       └── config.yaml (Configura o path do ChromeDriver)
-        └──test/
-            └── java/
-                │ core/ (Classes importantes como BasePage, DriverFactory, DSL)
-                │ page/ (Classes para cada página com elementos web e lógicas)
-                │ runner/ (Classe para executar a automação com JUnit)
-                └── util/ (Classe de apoio para ler o config.yaml)
+   └──src/
+      ├──main/
+      │   └──resources/
+      │      └── config.yaml (Configura o path do ChromeDriver)
+      └──test/
+         └──java/
+            ├─core/ (Classes importantes como BasePage, DriverFactory, DSL)
+            ├─page/ (Classes para cada página com elementos web e lógicas)
+            ├─runner/ (Classe para executar a automação com JUnit)
+            └──util/ (Classe de apoio para ler o config.yaml)
 ````
 
 ## ⚙️ Configuração
