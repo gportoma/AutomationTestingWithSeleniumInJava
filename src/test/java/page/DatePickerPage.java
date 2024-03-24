@@ -43,22 +43,16 @@ public class DatePickerPage extends BasePage {
             if (currentMonth.equalsIgnoreCase(getMonthName(desiredMonth)) && currentYear == desiredYear) {
                 break;
             }
-
             WebElement prevButton = driver.findElement(By.className("ui-datepicker-prev"));
-            prevButton.click();
+            dsl.toClick(prevButton);
         }
-
         WebElement dayElement = driver.findElement(By.xpath("//a[text()='" + desiredDay + "']"));
-        dayElement.click();
+        dsl.toClick(dayElement);
     }
 
     public void assertDatePickerValue(Boolean datePickerIsEnabled, String expectValue) {
-        String testName = "Data de nascimento preenchida corretamente";
-        if (datePickerIsEnabled) {
-            Assert.assertEquals(testName, expectValue, datePickerEnabled.getAttribute("value"));
-        } else {
-            Assert.assertEquals(testName, expectValue, datePickerDisabled.getAttribute("value"));
-        }
+        WebElement datePicker = datePickerIsEnabled ? datePickerEnabled : datePickerDisabled;
+        Assert.assertEquals(expectValue, datePicker.getAttribute("value"));
     }
 
     private static String getMonthName(int month) {
