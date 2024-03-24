@@ -35,7 +35,7 @@ public class RunTest {
         registerPage.clickHobbies();
         registerPage.selectSkills("Java");
         registerPage.selectCountry("Australia");
-        registerPage.typeDateBirth("1999", "10", "11");
+        registerPage.typeDateBirth("1999", "October", "11");
         registerPage.typePassword("qweasd123");
         registerPage.clickSubmitButton();
         registerPage.assertCountryValidationMessage();

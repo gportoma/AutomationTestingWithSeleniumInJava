@@ -94,9 +94,9 @@ public class RegisterPage extends BasePage {
     }
 
     public void typeDateBirth(String yearValue, String monthValue, String dayValue) {
-        dsl.type(yearBirth, yearValue);
-        dsl.type(monthBirth, monthValue);
-        dsl.type(dayBirth, dayValue);
+        dsl.selectValueInComboBox(yearBirth, yearValue);
+        dsl.selectValueInComboBox(monthBirth, monthValue);
+        dsl.selectValueInComboBox(dayBirth, dayValue);
     }
 
     public void typePassword(String passwordValue) {
