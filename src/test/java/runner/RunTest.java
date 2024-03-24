@@ -4,7 +4,7 @@ import core.DriverFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import page.DataPickerPage;
+import page.DatePickerPage;
 import page.FramePage;
 import page.RegisterPage;
 import page.SliderPage;
@@ -12,16 +12,15 @@ import page.SliderPage;
 public class RunTest {
     RegisterPage registerPage;
     FramePage framePage;
-    DataPickerPage dataPickerPage;
+    DatePickerPage datePickerPage;
     SliderPage sliderPage;
-
 
     @Before
     public void setDriver() {
         DriverFactory.setDriver();
         registerPage = new RegisterPage(DriverFactory.getDriver());
         framePage = new FramePage(DriverFactory.getDriver());
-        dataPickerPage = new DataPickerPage(DriverFactory.getDriver());
+        datePickerPage = new DatePickerPage(DriverFactory.getDriver());
         sliderPage = new SliderPage(DriverFactory.getDriver());
     }
 
@@ -51,27 +50,27 @@ public class RunTest {
     }
 
     @Test
-    public void selectDatePickerDisabled() throws InterruptedException {
+    public void selectDatePickerDisabled() {
         registerPage.openBrowser();
         registerPage.navigateToDataPicker();
-        dataPickerPage.selectBirthDate("11/10/1999");
-        Thread.sleep(2000);
+        datePickerPage.selectBirthDate("10/11/1999");
+        datePickerPage.assertDatePickerValue(false, "11/10/1999");
     }
 
     @Test
-    public void selectDatePickerEnabled() throws InterruptedException {
+    public void selectDatePickerEnabled() {
         registerPage.openBrowser();
         registerPage.navigateToDataPicker();
-        dataPickerPage.typeDataPickerEnabled();
-        Thread.sleep(2000);
+        datePickerPage.typeDatePickerEnabled("10/11/1999");
+        datePickerPage.assertDatePickerValue(true, "10/11/1999");
     }
 
     @Test
-    public void select50PerCentInSlider() throws InterruptedException {
+    public void select50PerCentInSlider() {
         registerPage.openBrowser();
         registerPage.navigateToSlider();
         sliderPage.select50PerCentInSlider();
-        Thread.sleep(2000);
+        sliderPage.assertSliderPosition();
     }
 
     @After

@@ -7,15 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
+public class DatePickerPage extends BasePage {
 
-import static org.junit.Assert.assertEquals;
-
-public class DataPickerPage extends BasePage {
-
-    public DataPickerPage(WebDriver driver) {
+    public DatePickerPage(WebDriver driver) {
         super(driver);
     }
 
@@ -24,18 +18,16 @@ public class DataPickerPage extends BasePage {
     @FindBy(id = "datepicker2")
     private WebElement datePickerEnabled;
     @FindBy(xpath = "//a[@title='Close the datepicker']")
-    private WebElement closeDataPicker;
+    private WebElement closeDatePicker;
 
-
-    public void typeDataPickerEnabled() {
-        dsl.type(datePickerEnabled, "11/10/1999");
-        dsl.toClick(closeDataPicker);
+    public void typeDatePickerEnabled(String datePicker) {
+        dsl.type(datePickerEnabled, datePicker);
+        dsl.toClick(closeDatePicker);
     }
 
     public void selectBirthDate(String desiredDate) {
         dsl.toClick(datePickerDisabled);
 
-        // Quebrar a data em dia, mês e ano
         String[] dateParts = desiredDate.split("/");
         int desiredDay = Integer.parseInt(dateParts[0]);
         int desiredMonth = Integer.parseInt(dateParts[1]);
@@ -58,6 +50,15 @@ public class DataPickerPage extends BasePage {
 
         WebElement dayElement = driver.findElement(By.xpath("//a[text()='" + desiredDay + "']"));
         dayElement.click();
+    }
+
+    public void assertDatePickerValue(Boolean datePickerIsEnabled, String expectValue) {
+        String testName = "Data de nascimento preenchida corretamente";
+        if (datePickerIsEnabled) {
+            Assert.assertEquals(testName, expectValue, datePickerEnabled.getAttribute("value"));
+        } else {
+            Assert.assertEquals(testName, expectValue, datePickerDisabled.getAttribute("value"));
+        }
     }
 
     private static String getMonthName(int month) {

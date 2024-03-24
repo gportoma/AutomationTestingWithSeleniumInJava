@@ -62,7 +62,6 @@ testng-failed.xml
 test-output.xml
 
 # Log files
-*.log
 
 # Virtual Machine files
 *.vmdk

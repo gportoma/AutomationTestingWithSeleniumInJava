@@ -112,7 +112,7 @@ public class RegisterPage extends BasePage {
         String validationMessage = (String) ((JavascriptExecutor) driver).executeScript(
                 "return arguments[0].validationMessage;", countries);
         String expectedMessage = "Selecione um item da lista.";
-        Assert.assertEquals("A mensagem de validação está incorreta.", expectedMessage, validationMessage);
+        Assert.assertEquals("Apresenta a mensagem 'Selecione um item da lista.'", expectedMessage, validationMessage);
     }
 
     public void navigateToFrames() {
@@ -129,5 +129,4 @@ public class RegisterPage extends BasePage {
         dsl.toClick(dropdownWidgets);
         dsl.toClick(sliderLink);
     }
-
 }

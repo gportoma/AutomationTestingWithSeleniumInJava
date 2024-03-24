@@ -24,6 +24,6 @@ public class FramePage extends BasePage {
 
     public void assertTextFieldNotEmpty() {
         String value = inputSingleIframe.getAttribute("value");
-        Assert.assertFalse("O campo de entrada de texto não foi preenchido.", value.isEmpty());
+        Assert.assertFalse("O iframe esta preenchido", value.isEmpty());
     }
 }
